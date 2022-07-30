@@ -1,0 +1,3 @@
+bash run.cli composer create-project october/october . "^2.0"
+
+bash run.cli php artisan october:install

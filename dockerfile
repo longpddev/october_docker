@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
 	&& docker-php-ext-configure gd --with-freetype --with-jpeg \
 	&& docker-php-ext-install -j$(nproc) gd mysqli pdo pdo_mysql 
 
-RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-	php composer-setup.php --install-dir=/bin --filename=composer \
-	php -r "unlink('composer-setup.php');"
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"; \
+	php composer-setup.php --install-dir=/bin --filename=composer; \
+	php -r "unlink('composer-setup.php');"; \
+	a2enmod rewrite

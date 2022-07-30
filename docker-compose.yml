@@ -15,6 +15,7 @@ services:
       - 8000:80
     volumes:
       - ./source:/var/www/html
+      - ./apache:/etc/apache2
   phpmyadmin:
     image: phpmyadmin
     restart: always
