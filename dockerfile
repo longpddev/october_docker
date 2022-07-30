@@ -2,6 +2,7 @@ FROM php:7.4.30-apache
 RUN apt-get update && apt-get install -y \
 	vim \
 	git \
+	curl \
 	zip \
 	unzip \
 	libfreetype6-dev \
@@ -13,4 +14,8 @@ RUN apt-get update && apt-get install -y \
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"; \
 	php composer-setup.php --install-dir=/bin --filename=composer; \
 	php -r "unlink('composer-setup.php');"; \
-	a2enmod rewrite
+	a2enmod rewrite; \
+	curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash; \
+	source ~/.bashrc; \
+	nvm install v16.16.0; \
+	apt-get install -y npm; \
